@@ -60,15 +60,15 @@ async def on_message(message):
         await message.channel.send(embed=embed)
 
     #관리자 전용 명령어 도움말 페이지 임베드
-    if message.content.startswith(f'{command_prefix}어드민'):
-        embed = discord.Embed(title="(운영위원회 전용) 도움말", description="**이 봇은 `LeeSin#5693 - 얄룽` 님에 의해 개발 되었습니다.**", color=0xffffff)
+    if message.content.startswith(f'{command_prefix}관리'):
+        embed = discord.Embed(title="(운영위원회 전용) 관리 도움말", description="**이 봇은 `LeeSin#5693 - 얄룽` 님에 의해 개발 되었습니다.**", color=0xffffff)
         embed.add_field(name="**킥**", value="**`서버에서 해당 유저를 킥합니다.`**", inline=False)
         embed.add_field(name="**청소**", value="**`청소 (갯수)만큼 채팅이 삭제됩니다.`**", inline=False)
         embed.add_field(name="**뮤트**", value="**`뮤트 (userid)를 입력할 경우, 해당 유저는 뮤트 됩니다.`**", inline=False)
         embed.add_field(name="**뮤트해제**", value="**`뮤트해제 (userid) 를 입력할 경우, (userid)는 뮤트 해제 됩니다.`**", inline=False)
         embed.add_field(name="**정보**", value="**`각자의 정보를 보여줍니다.`**", inline=False)
         embed.add_field(name="**---> **", value="**`정보(가입일, 이름, 아이디, 닉네임, 온(오프)라인상태)를 보여줍니다.`**", inline=False)
-        embed.add_field(name="**---> **", value="**[자리비움,다른용무중은 오프라인으로 인식됩니다.]**")
+        embed.add_field(name="**---> **", value="**`[자리비움,다른용무중은 오프라인으로 인식됩니다.]`**")
         embed.add_field(name="**서버정보**", value="**`서버의 정보를 보여줍니다.`**", inline=False)
         embed.add_field(name="**유저정보**", value="**`서버 내의 유저정보를 보여줍니다.`**", inline=False)
         embed.add_field(name="**업타임(개발중)**", value="**`어머나 개발중이넹?`**", inline=False)
@@ -132,7 +132,7 @@ async def on_message(message):
         num = int(message.content.split(" ")[1])
         await message.delete()
         await message.channel.purge(limit=num)
-        await message.channel.send(f"✅ {num}개의 메시지를 정상적으로 삭제 완료!")
+        await message.channel.send(f"✅ {num}개의 메시지를 정상적으로 삭제 완료하였습니다!")
 
     #정보 명령어 구문
     if message.content.startswith(f'{command_prefix}정보'):
@@ -159,4 +159,4 @@ async def on_message(message):
         await message.channel.send(f"| {hours}시간 {minitues}분 {seconds}초 | 동안 작동되었어요!")
 
 
-client.run("ODA1MDY0Mjc4NDY5MTE1OTA1.YBVciQ.iWz-llyMjF6xqYZrh-dvGHb9kIk")
+client.run("ODA1MDY0Mjc4NDY5MTE1OTA1.YBVciQ.Fs2zflKcebcl_F6KY_KXJmdiNgY")
