@@ -159,4 +159,4 @@ async def on_message(message):
         await message.channel.send(f"| {hours}시간 {minitues}분 {seconds}초 | 동안 작동되었어요!")
 
 
-client.run("ODA1MDY0Mjc4NDY5MTE1OTA1.YBVciQ.varrK4j1Mh6eaHV6TY7TsGnTfCs")
+client.run("ODA1MDY0Mjc4NDY5MTE1OTA1.YBVciQ.iWz-llyMjF6xqYZrh-dvGHb9kIk")
