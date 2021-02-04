@@ -22,7 +22,7 @@ async def on_ready():
     print(" System : 봇 실행중..... ")
     print("")
     print(" ======================================================================= ")
-    await client.change_presence(activity=discord.Game(".도움"), status=discord.Status.online)
+    await client.change_presence(activity=discord.Game(".도움 | Ver 3.0.0"), status=discord.Status.online)
     print("")
     print(" System : 상태 표시 완료! ")
     print("")
@@ -46,7 +46,9 @@ async def on_ready():
 async def on_message(message):
     if message.content.startswith(f'{command_prefix}자기소개'):
         await message.channel.send("안녕! 나는 얄룽님이 개발해주신! 포인트봇(V3)야! 반가워~ 채팅창에 **`.도움`** 를 쳐봐!")
-
+    else:
+        await message.channel.send(embed=discord.Embed(title="🛑 명령어 처리 도중 에러 발생", description=message.author.mention + "`Error 1bcfe.`", color=0xff0000))
+        return
     #명령어 도움말 페이지 임베드
     if message.content.startswith(f'{command_prefix}도움'):
         embed = discord.Embed(title="도움말", description="**이 봇은 `LeeSin#5693 - 얄룽` 님에 의해 개발 되었습니다.**", color=0xffffff)
@@ -58,12 +60,15 @@ async def on_message(message):
         embed.set_author(name="포인트봇(V3) 도움말",icon_url="https://i.imgur.com/uLDnDU3.png")
         embed.set_thumbnail(url="https://i.imgur.com/uLDnDU3.png")
         await message.channel.send(embed=embed)
+    else:
+        await message.channel.send(embed=discord.Embed(title="🛑 명령어 처리 도중 에러 발생", description=message.author.mention + "`Error 2bcfe.`", color=0xff0000))
+        return
 
     #관리자 전용 명령어 도움말 페이지 임베드
     if message.content.startswith(f'{command_prefix}관리'):
         embed = discord.Embed(title="(운영위원회 전용) 관리 도움말", description="**이 봇은 `LeeSin#5693 - 얄룽` 님에 의해 개발 되었습니다.**", color=0xffffff)
-        embed.add_field(name="**킥**", value="**`서버에서 해당 유저를 킥합니다.`**", inline=False)
         embed.add_field(name="**청소**", value="**`청소 (갯수)만큼 채팅이 삭제됩니다.`**", inline=False)
+        embed.add_field(name="**킥**", value="**`서버에서 해당 유저를 킥합니다.`**", inline=False)
         embed.add_field(name="**뮤트**", value="**`뮤트 (userid)를 입력할 경우, 해당 유저는 뮤트 됩니다.`**", inline=False)
         embed.add_field(name="**뮤트해제**", value="**`뮤트해제 (userid) 를 입력할 경우, (userid)는 뮤트 해제 됩니다.`**", inline=False)
         embed.add_field(name="**정보**", value="**`각자의 정보를 보여줍니다.`**", inline=False)
@@ -80,6 +85,9 @@ async def on_message(message):
         embed.set_author(name="포인트봇(V3) 도움말",icon_url="https://i.imgur.com/uLDnDU3.png")
         embed.set_thumbnail(url="https://i.imgur.com/uLDnDU3.png")
         await message.channel.send(embed=embed)
+    else:
+        await message.channel.send(embed=discord.Embed(title="💢 권한 부족", description=message.author.mention + "님은 채널을 관리할 수 있는 권한이 없습니다.", color=0xff0000))
+        return
 
     #킥 명령어 구문
     if(message.content.split(" ")[0] == f'{command_prefix}킥'):
@@ -127,6 +135,7 @@ async def on_message(message):
         else:
             await message.channel.send(embed=discord.Embed(title="💢 권한 부족", description=message.author.mention + "님은 채널을 관리 할 수 있는 권한이 없습니다.", color=0xff0000))
             return
+            
     #청소 명령어 구문
     if message.content.startswith(f'{command_prefix}청소'):
         num = int(message.content.split(" ")[1])
@@ -159,4 +168,4 @@ async def on_message(message):
         await message.channel.send(f"| {hours}시간 {minitues}분 {seconds}초 | 동안 작동되었어요!")
 
 
-client.run("ODA1MDY0Mjc4NDY5MTE1OTA1.YBVciQ.Fs2zflKcebcl_F6KY_KXJmdiNgY")
+client.run("ODA1MDY0Mjc4NDY5MTE1OTA1.YBVciQ.zAhO0709TAdgeKnVmKPmIIp1EP0")
